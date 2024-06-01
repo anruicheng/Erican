@@ -1,0 +1,27 @@
+# permissions for end users to edit goddessmoments.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: kb
+    app.kubernetes.io/managed-by: kustomize
+  name: goddessmoment-editor-role
+rules:
+- apiGroups:
+  - kb.crd.erican.io
+  resources:
+  - goddessmoments
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - kb.crd.erican.io
+  resources:
+  - goddessmoments/status
+  verbs:
+  - get
